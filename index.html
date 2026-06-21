@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade de Vetores - 4 Exercícios</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Card de cada exercício */
+        .exercicio {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: transform 0.2s;
+        }
+
+        .exercicio:hover {
+            transform: scale(1.01);
+        }
+
+        .exercicio h2 {
+            color: #2c3e6e;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .exercicio h3 {
+            color: #555;
+            margin: 15px 0 10px 0;
+            font-size: 18px;
+        }
+
+        .resposta {
+            background: #f0f4f8;
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 10px;
+            border-left: 4px solid #3498db;
+        }
+
+        .codigo {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 12px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+
+        button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background: #2980b9;
+        }
+
+        input {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        .encontrado {
+            color: green;
+            font-weight: bold;
+        }
+
+        .nao-encontrado {
+            color: red;
+            font-weight: bold;
+        }
+
+        hr {
+            margin: 15px 0;
+            border: none;
+            border-top: 1px solid #ddd;
+        }
+
+        footer {
+            text-align: center;
+            color: #666;
+            margin-top: 20px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="text-align: center; color: #2c3e6e; margin-bottom: 30px;">📚 Atividade de Vetores em JavaScript</h1>
+
+        <!-- ============================================ -->
+        <!-- EXERCÍCIO 1 -->
+        <!-- ============================================ -->
+        <div class="exercicio">
+            <h2>📌 Exercício 1</h2>
+            <p><strong>Enunciado:</strong> Armazene em um vetor os nomes de 5 alunos, liste todos em uma UL e mostre a quantidade de alunos cadastrados.</p>
+            
+            <h3>✅ Resposta:</h3>
+            <div class="resposta">
+                <p><strong>Lista de Alunos:</strong></p>
+                <ul id="listaAlunos"></ul>
+                <p><strong>Total de alunos:</strong> <span id="totalAlunos">0</span></p>
+            </div>
+            <div class="codigo">
+                <pre>// Código:
+const alunos = ["Ana", "Bruno", "Carla", "Daniel", "Elisa"];
+const lista = document.getElementById('listaAlunos');
+for (let i = 0; i < alunos.length; i++) {
+    let item = document.createElement('li');
+    item.textContent = alunos[i];
+    lista.appendChild(item);
+}
+document.getElementById('totalAlunos').textContent = alunos.length;</pre>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- EXERCÍCIO 2 -->
+        <!-- ============================================ -->
+        <div class="exercicio">
+            <h2>📌 Exercício 2</h2>
+            <p><strong>Enunciado:</strong> Crie um vetor contendo as notas [25, 80, 65, 90, 100]. Calcule e exiba a média.</p>
+            
+            <h3>✅ Resposta:</h3>
+            <div class="resposta">
+                <p><strong>Notas:</strong> <span id="notas"></span></p>
+                <p><strong>Média:</strong> <span id="media"></span></p>
+                <p><strong>Cálculo:</strong> 25 + 80 + 65 + 90 + 100 = 360 ÷ 5 = <strong>72</strong></p>
+            </div>
+            <div class="codigo">
+                <pre>// Código:
+const notas = [25, 80, 65, 90, 100];
+let soma = 0;
+for (let i = 0; i < notas.length; i++) {
+    soma += notas[i];
+}
+const media = soma / notas.length;
+console.log("Média:", media); // 72</pre>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- EXERCÍCIO 3 -->
+        <!-- ============================================ -->
+        <div class="exercicio">
+            <h2>📌 Exercício 3</h2>
+            <p><strong>Enunciado:</strong> Crie um vetor com os produtos: ["Arroz", "Feijão", "Macarrão", "Leite", "Café"]. Permita que o usuário digite um produto e verifique se ele existe no vetor.</p>
+            
+            <h3>✅ Resposta:</h3>
+            <div class="resposta">
+                <p><strong>Produtos disponíveis:</strong> Arroz, Feijão, Macarrão, Leite, Café</p>
+                <input type="text" id="produtoInput" placeholder="Digite um produto...">
+                <button id="btnBuscar">Buscar</button>
+                <p id="resultadoBusca" style="margin-top: 10px;"></p>
+            </div>
+            <div class="codigo">
+                <pre>// Código:
+const produtos = ["Arroz", "Feijão", "Macarrão", "Leite", "Café"];
+function buscarProduto() {
+    let digitado = document.getElementById('produtoInput').value.trim();
+    let encontrado = false;
+    for (let i = 0; i < produtos.length; i++) {
+        if (produtos[i].toLowerCase() === digitado.toLowerCase()) {
+            encontrado = true;
+            break;
+        }
+    }
+    alert(encontrado ? "Produto encontrado!" : "Produto não encontrado!");
+}</pre>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- EXERCÍCIO 4 -->
+        <!-- ============================================ -->
+        <div class="exercicio">
+            <h2>📌 Exercício 4</h2>
+            <p><strong>Enunciado:</strong> Crie um programa que receba o vetor [10, 5, 8, 10, 3, 5, 7, 8]. O programa deve: criar um novo vetor sem valores repetidos, exibir o vetor original, o vetor sem duplicatas e a quantidade de elementos removidos.</p>
+            
+            <h3>✅ Resposta:</h3>
+            <div class="resposta">
+                <p><strong>Vetor original:</strong> <span id="vetorOriginal"></span> (8 elementos)</p>
+                <p><strong>Vetor sem duplicatas:</strong> <span id="vetorSemDuplicatas"></span> (5 elementos)</p>
+                <p><strong>Elementos removidos:</strong> <span id="elementosRemovidos"></span></p>
+                <button id="btnRemoverDuplicatas">➗ Remover Duplicatas</button>
+            </div>
+            <div class="codigo">
+                <pre>// Código:
+const original = [10, 5, 8, 10, 3, 5, 7, 8];
+const semDuplicatas = [];
+for (let i = 0; i < original.length; i++) {
+    let jaExiste = false;
+    for (let j = 0; j < semDuplicatas.length; j++) {
+        if (semDuplicatas[j] === original[i]) {
+            jaExiste = true;
+            break;
+        }
+    }
+    if (!jaExiste) semDuplicatas.push(original[i]);
+}
+const removidos = original.length - semDuplicatas.length;
+console.log("Removidos:", removidos); // 3</pre>
+            </div>
+        </div>
+
+        <footer>Atividade de Vetores - JavaScript</footer>
+    </div>
+
+    <script>
+        // Aguarda o DOM ser completamente carregado antes de executar o código
+        document.addEventListener('DOMContentLoaded', function() {
+            // ============================================
+            // EXERCÍCIO 1 - Lista de Alunos
+            // ============================================
+            const alunos = ["Ana", "Bruno", "Carla", "Daniel", "Elisa"];
+            const listaAlunosDOM = document.getElementById('listaAlunos');
+            for (let i = 0; i < alunos.length; i++) {
+                const item = document.createElement('li');
+                item.textContent = alunos[i];
+                listaAlunosDOM.appendChild(item);
+            }
+            document.getElementById('totalAlunos').textContent = alunos.length;
+
+            // ============================================
+            // EXERCÍCIO 2 - Média das Notas
+            // ============================================
+            const notas = [25, 80, 65, 90, 100];
+            let soma = 0;
+            for (let i = 0; i < notas.length; i++) {
+                soma += notas[i];
+            }
+            const media = soma / notas.length;
+            document.getElementById('notas').textContent = notas.join(", ");
+            document.getElementById('media').textContent = media.toFixed(1);
+
+            // ============================================
+            // EXERCÍCIO 3 - Buscar Produto
+            // ============================================
+            const produtos = ["Arroz", "Feijão", "Macarrão", "Leite", "Café"];
+            const inputProduto = document.getElementById('produtoInput');
+            const btnBuscar = document.getElementById('btnBuscar');
+            const resultadoBusca = document.getElementById('resultadoBusca');
+
+            function buscarProduto() {
+                const digitado = inputProduto.value.trim();
+                
+                if (digitado === "") {
+                    resultadoBusca.textContent = "Digite um produto!";
+                    resultadoBusca.className = "nao-encontrado";
+                    return;
+                }
+                
+                let encontrado = false;
+                for (let i = 0; i < produtos.length; i++) {
+                    if (produtos[i].toLowerCase() === digitado.toLowerCase()) {
+                        encontrado = true;
+                        break;
+                    }
+                }
+                
+                if (encontrado) {
+                    resultadoBusca.innerHTML = "✅ Produto encontrado!";
+                    resultadoBusca.className = "encontrado";
+                } else {
+                    resultadoBusca.innerHTML = "❌ Produto não encontrado!";
+                    resultadoBusca.className = "nao-encontrado";
+                }
+            }
+            
+            btnBuscar.addEventListener('click', buscarProduto);
+            inputProduto.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    buscarProduto();
+                }
+            });
+
+            // ============================================
+            // EXERCÍCIO 4 - Remover Duplicatas
+            // ============================================
+            const vetorOriginal = [10, 5, 8, 10, 3, 5, 7, 8];
+            
+            // Mostra o vetor original
+            document.getElementById('vetorOriginal').textContent = vetorOriginal.join(", ");
+            
+            function removerDuplicatas() {
+                const vetorSemDuplicatas = [];
+                
+                for (let i = 0; i < vetorOriginal.length; i++) {
+                    let jaExiste = false;
+                    for (let j = 0; j < vetorSemDuplicatas.length; j++) {
+                        if (vetorSemDuplicatas[j] === vetorOriginal[i]) {
+                            jaExiste = true;
+                            break;
+                        }
+                    }
+                    if (!jaExiste) {
+                        vetorSemDuplicatas.push(vetorOriginal[i]);
+                    }
+                }
+                
+                const elementosRemovidos = vetorOriginal.length - vetorSemDuplicatas.length;
+                
+                document.getElementById('vetorSemDuplicatas').textContent = vetorSemDuplicatas.join(", ");
+                document.getElementById('elementosRemovidos').textContent = elementosRemovidos;
+            }
+            
+            // Executa automaticamente ao carregar a página
+            removerDuplicatas();
+            
+            // Botão para executar novamente (opcional)
+            const btnRemoverDuplicatas = document.getElementById('btnRemoverDuplicatas');
+            if (btnRemoverDuplicatas) {
+                btnRemoverDuplicatas.addEventListener('click', removerDuplicatas);
+            }
+        });
+    </script>
+</body>
+</html>
